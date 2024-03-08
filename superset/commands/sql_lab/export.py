@@ -115,10 +115,7 @@ class SqlResultExportCommand(BaseCommand):
                 limit = None
             else:
                 sql = self._query.executed_sql
-                limit = ParsedQuery(
-                    sql,
-                    engine=self._query.database.db_engine_spec.engine,
-                ).limit
+                limit = ParsedQuery(sql).limit
             if limit is not None and self._query.limiting_factor in {
                 LimitingFactor.QUERY,
                 LimitingFactor.DROPDOWN,

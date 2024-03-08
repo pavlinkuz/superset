@@ -183,7 +183,7 @@ class Query(
 
     @property
     def sql_tables(self) -> list[Table]:
-        return list(ParsedQuery(self.sql, engine=self.db_engine_spec.engine).tables)
+        return list(ParsedQuery(self.sql).tables)
 
     @property
     def columns(self) -> list["TableColumn"]:
@@ -427,9 +427,7 @@ class SavedQuery(Model, AuditMixinNullable, ExtraJSONMixin, ImportExportMixin):
 
     @property
     def sql_tables(self) -> list[Table]:
-        return list(
-            ParsedQuery(self.sql, engine=self.database.db_engine_spec.engine).tables
-        )
+        return list(ParsedQuery(self.sql).tables)
 
     @property
     def last_run_humanized(self) -> str:

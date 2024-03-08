@@ -24,6 +24,8 @@ db-dtypes==1.1.1
     # via pandas-gbq
 docker==6.1.1
     # via -r requirements/testing.in
+ephem==4.1.4
+    # via lunarcalendar
 flask-testing==0.8.1
     # via -r requirements/testing.in
 fonttools==4.39.4
